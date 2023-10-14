@@ -1,0 +1,53 @@
+/* setup vars as i do intend to reuse this code for my actual website */
+:root {
+    --wp: url('i-hate-sorting-assets/beach.png');
+    --wpb: url('i-hate-sorting-assets/beach-blur.png');
+    --wpbd: url('i-hate-sorting-assets/beach-blur-darker.png');
+    --bamboo: url('i-hate-sorting-assets/BAMBOOLOOP.png');
+    --bamboostop: url('i-hate-sorting-assets/BAMBOOSTOPPIE.png');
+    --bambL: url('i-hate-sorting-assets/BMBENDLEFT.png');
+    --bambR: url('i-hate-sorting-assets/BMBENDRIGHT.png');
+    --pre: #64bde9;
+    --dark: #1E1E1E99;
+    --oceanL: #ade6f7;
+    --claws: #082142;
+    --header: #9cceff;
+    --darkCol: #00000080;
+}
+/* buka bird definition */
+@font-face {
+    font-family: 'BukaBird';
+    src: url('i-hate-sorting-assets/BukaBird.ttf') format('truetype');
+}
+/* ubuntu font for other text */
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+/* le cool shit */
+::-webkit-scrollbar-thumb{background-color: #73633a;}
+::-webkit-scrollbar-thumb:hover{background-color: #c5bea7;}
+::-webkit-scrollbar-thumb:active{background-color: var(--oceanL);}
+::-webkit-scrollbar{background-color: var(--darkCol) !important;}
+::-moz-selection {color: var(--oceanL);background: var(--claws);}
+::selection {color: var(--oceanL);background: var(--claws);}
+/* CLASS SPECIFICALLY FOR TEXT TO USE BUKA BIRD */
+.bb{font-family: 'BukaBird', sans-serif;}
+/* ubuntu */
+.ub{font-family: 'Ubuntu', sans-serif;}
+/* le actual shit */
+body{padding-left:12px;padding-right:12px;}
+*{box-sizing:border-box;color:white;}
+h1,h2,h3,h4,h5,h6{color:var(--header);}
+.cnt{text-align:center;}
+.nfw{font-weight:normal;}
+.brd{border-bottom:2px solid var(--header);}
+.wht{color:white;}
+
+/* Quote box container */
+.quote-box {border-left: 4px solid var(--header);background: var(--darkCol);padding: 20px;padding-top:8px;padding-bottom:8px;margin: 20px 0;position: relative;}
+/* quote text style */
+.quote-text {font-size: 18px;line-height: 1;color: white;margin-bottom: 10px;}
+.quote-author {font-style: italic;color: var(--pre);}
+.quote-text::before, .quote-text::after{content: "\201C";font-size: 36px;color: var(--header);vertical-align: middle;}
+.quote-text::after{content: "\201D";}
+.inbl{display:inline-block;}
+.jst{text-align:justify;}
+a.rrr{float:right;display:flex;flex-direction:column;}
