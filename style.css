@@ -35,8 +35,9 @@
 /* le actual shit */
 html,body{width:100%;height:100%;margin:0;padding:0;overflow:hidden;}
 *{box-sizing:border-box;}
+*,img{image-rendering:pixelated;image-rendering:-moz-crisp-edges;}
 body{background-color:var(--pre);background-image:var(--wp);background-size:cover;background-repeat:no-repeat;background-attachment:fixed;background-position:center;image-rendering:pixelated;image-rendering:-moz-crisp-edges;}
-.container{display:flex;flex-direction:column;position:relative;float:right;height:calc(100% - 64px);max-width:1024px;width:100%;/*background-color:var(--tempBG);*/margin-right:96px;margin-top:32px;}
+.container{display:flex;flex-direction:column;position:relative;float:right;height:calc(100% - 64px);max-width:1024px;width:100%;/*background-color:var(--tempBG);*/margin-right:96px;margin-top:32px;/*awesome drop shadow epic style*/filter:drop-shadow(0px 16px 24px #00000090);}
 .top,.content,.links{position:relative;background-image:var(--wpbd);background-size:cover;background-position:center;background-attachment:fixed;background-repeat:no-repeat;image-rendering:pixelated;image-rendering:-moz-crisp-edges;}
 a.headerlink{text-decoration:none;}
 img.logo{width:100%;height:auto;padding:32px;}
@@ -98,7 +99,18 @@ h1,h2,h3,h4,h5,h6{color:var(--header);}
 .links .links2 .lh1txt a{color:white;margin:5px;margin-bottom:0;padding-bottom:0;text-decoration:none;transition:border-bottom 0.2s ease-in-out;border-bottom:2px solid transparent;}
 .links .links2 .lh1txt a:hover{border-bottom: 2px solid white;}
 .stitch{padding-left:50px;position:relative;}
-.stitch::before{content:"";width:50px;height:50px;display:block;position:absolute;top:-8px;left:-6px;background-image: url('i-hate-sorting-assets/stitch.gif');}
+.stitch::before{content:"";width:50px;height:50px;display:block;position:absolute;top:-8px;left:-6px;background-image: url('i-hate-sorting-assets/stitch.gif');background-repeat:no-repeat;background-size:contain;background-position:center;image-rendering:pixelated;image-rendering:-moz-crisp-edges;}
 
 /* main content frame */
 #cf{width:100%;height:100%;}
+
+/* unironically fuck apple, y'all can suck my fat wiggly alien dick */
+@media only screen and (max-width:720px) {
+    h2.lh1txt {font-size:1.25em;}
+    .links .links2 .lh1txt {padding-left:0;}
+}
+@media only screen and (max-width:512px) {
+    .stitch::before {width:25px;height:25px;top:0px;}
+    .flw .lh1{font-size:1.5em;padding-left:20px;}
+    h2.lh1txt {font-size:1.1em;}
+}
