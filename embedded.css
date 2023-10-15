@@ -39,7 +39,7 @@ body{padding-left:12px;padding-right:12px;}
 h1,h2,h3,h4,h5,h6{color:var(--header);}
 .cnt{text-align:center;}
 .nfw{font-weight:normal;}
-.brd{border-bottom:2px solid var(--header);}
+.brd{border-bottom:2px solid var(--header);padding-bottom:4px;}
 .wht{color:white;}
 
 /* Quote box container */
@@ -52,6 +52,7 @@ h1,h2,h3,h4,h5,h6{color:var(--header);}
 .inbl{display:inline-block;}
 .jst{text-align:justify;}
 a.rrr{float:right;display:flex;flex-direction:column;}
+.mobile{display:none;}
 
 /* unironically fuck apple, y'all can suck my fat wiggly alien dick */
 @media only screen and (max-width:720px) {
@@ -60,9 +61,12 @@ a.rrr{float:right;display:flex;flex-direction:column;}
     .fuckapple{width:35px;height:48px;}
     p{font-size:0.8em!important;}
 }
-@media only screen and (max-width:512px) {
+@media only screen and (max-width:480px) {
     h1{font-size:1.5em;}
     h2 {font-size:1.1em;}
     h3{font-size:0.9em;}
     .fuckapple{right:0;bottom:0;}
+}
+@media only screen and (max-width:420px) {
+    .mobile{display:block;text-align:center;padding:0;margin:-10px;}
 }

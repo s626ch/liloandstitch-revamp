@@ -95,7 +95,7 @@ h1,h2,h3,h4,h5,h6{color:var(--header);}
 .links2{flex: 1 1 auto;}
 .links .flw{border-right: 4px solid var(--header);padding-right:10px;}
 .flw .lh1{font-weight:normal;}
-.links .links2 .lh1txt{padding-left:10px;font-weight:normal;color:white;text-align:center;width:100%;}
+.links .links2 .lh1txt{padding-left:10px;font-weight:normal;color:white;text-align:center;width:100%;display:flex;align-items:center;justify-content:center;}
 .links .links2 .lh1txt a{color:white;margin:5px;margin-bottom:0;padding-bottom:0;text-decoration:none;transition:border-bottom 0.2s ease-in-out;border-bottom:2px solid transparent;}
 .links .links2 .lh1txt a:hover{border-bottom: 2px solid white;}
 .stitch{padding-left:50px;position:relative;}
@@ -106,11 +106,13 @@ h1,h2,h3,h4,h5,h6{color:var(--header);}
 
 /* unironically fuck apple, y'all can suck my fat wiggly alien dick */
 @media only screen and (max-width:720px) {
-    h2.lh1txt {font-size:1.25em;}
+    h2.lh1txt {font-size:0.9em;}
+    .flw{padding-right:4px!important;}
     .links .links2 .lh1txt {padding-left:0;}
 }
-@media only screen and (max-width:512px) {
-    .stitch::before {width:25px;height:25px;top:0px;}
-    .flw .lh1{font-size:1.5em;padding-left:20px;}
-    h2.lh1txt {font-size:1.1em;}
+@media only screen and (max-width:480px) {
+    .stitch::before {width:20px;height:20px;top:0px;}
+    .flw .lh1{font-size:1em;padding-left:15px;margin-right:0;}
+    .links .flw{border-right:2px solid var(--header);}
+    h2.lh1txt {font-size:0.7em;margin-left:0;margin-right:0;}
 }
