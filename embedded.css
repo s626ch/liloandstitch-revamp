@@ -41,6 +41,7 @@ h1,h2,h3,h4,h5,h6{color:var(--header);}
 .nfw{font-weight:normal;}
 .brd{border-bottom:2px solid var(--header);padding-bottom:4px;}
 .wht{color:white;}
+*,img{image-rendering:pixelated;image-rendering:-moz-crisp-edges;}
 
 /* Quote box container */
 .quote-box {border-left: 4px solid var(--header);background: var(--darkCol);padding: 20px;padding-top:8px;padding-bottom:8px;margin: 20px 0;position: relative;}
