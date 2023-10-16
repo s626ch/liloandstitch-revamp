@@ -97,7 +97,7 @@ h1,h2,h3,h4,h5,h6{color:var(--header);}
 .links .flw{border-right: 4px solid var(--header);padding-right:10px;}
 .flw .lh1{font-weight:normal;}
 .links .links2 .lh1txt{padding-left:10px;font-weight:normal;color:white;text-align:center;width:100%;display:flex;align-items:center;justify-content:center;}
-.links .links2 .lh1txt a{color:white;margin:5px;margin-bottom:0;padding-bottom:0;text-decoration:none;transition:border-bottom 0.2s ease-in-out;border-bottom:2px solid transparent;}
+.links .links2 .lh1txt a{color:white;margin:5px;margin-bottom:0;padding-bottom:0;text-decoration:none;transition:border-bottom 0.2s ease-in-out;border-bottom:2px solid transparent;margin-left:15px;margin-right:15px;}
 .links .links2 .lh1txt a:hover{border-bottom: 2px solid white;}
 .stitch{padding-left:50px;position:relative;}
 .stitch::before{content:"";width:50px;height:50px;display:block;position:absolute;top:-8px;left:-6px;background-image: url('i-hate-sorting-assets/stitch.gif');background-repeat:no-repeat;background-size:contain;background-position:center;image-rendering:pixelated;image-rendering:-moz-crisp-edges;}
@@ -110,6 +110,7 @@ h1,h2,h3,h4,h5,h6{color:var(--header);}
     h2.lh1txt {font-size:0.9em;}
     .flw{padding-right:4px!important;}
     .links .links2 .lh1txt {padding-left:0;}
+	.links .links2 .lh1txt a{margin-left:5px;margin-right:5px;}
 }
 @media only screen and (max-width:480px) {
     .stitch::before {width:20px;height:20px;top:0px;}
