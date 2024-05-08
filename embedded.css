@@ -47,12 +47,15 @@ h1,h2,h3,h4,h5,h6{color:var(--header);}
 .quote-box {border-left: 4px solid var(--header);background: var(--darkCol);padding: 20px;padding-top:8px;padding-bottom:8px;margin: 20px 0;position: relative;}
 /* quote text style */
 .quote-text {font-size: 18px;line-height: 1;color: white;margin-bottom: 10px;}
+.fixmargin{margin-top:0;margin-bottom:0;}
 .quote-author {font-style: italic;color: var(--pre);}
+.quote-author.fixmargin{margin-bottom:8px;}
 .quote-text::before, .quote-text::after{content: "\201C";font-size: 36px;color: var(--header);vertical-align: middle;}
 .quote-text::after{content: "\201D";}
 .inbl{display:inline-block;}
 .jst{text-align:justify;}
 a.rrr{float:right;display:flex;flex-direction:column;}
+.rrr{float:right;display:flex;flex-direction:column;}
 .mobile{display:none;}
 
 /* unironically fuck apple, y'all can suck my fat wiggly alien dick */
@@ -71,3 +74,15 @@ a.rrr{float:right;display:flex;flex-direction:column;}
 @media only screen and (max-width:420px) {
     .mobile{display:block;text-align:center;padding:0;margin:-10px;}
 }
+
+/*lastfm shit*/
+#lastfm{display:flex;align-items:center;justify-content:center;margin-bottom:32px;}
+.lastfm__box {display: flex;max-width: 420px;padding: 16px;border-left: 4px solid var(--header);background: var(--darkCol);}
+.lastfm__art{flex: 0 0 auto;margin-right: 12px;height:auto;width:100px;}
+.lastfm__info{flex: 1 1 auto;display: flex;flex-direction: column;justify-content: center;}
+.lastfm__track, .lastfm__artist, .lastfm__album{margin: 0;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;word-wrap:anywhere;}
+.lastfm__info p{font-size:12px;}
+.lastfm__info h2{font-size:20px;}
+.lastfm__artist,.lastfm__album{font-style:italic;color:var(--pre);}
+.lastfm__link{width:100px;height:100px;margin-right:12px;}
+.lastfm__ellipse{-webkit-line-clamp:2;white-space:break-spaces;display:-webkit-box;-webkit-box-orient:vertical;overflow:hidden;}
