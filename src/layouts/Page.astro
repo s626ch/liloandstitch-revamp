@@ -1,0 +1,168 @@
+---
+import "../styles/page.scss";
+
+const { title, description } = Astro.props
+
+export interface Props {
+    title: string,
+    description?: string
+}
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<!--
+⠀⠀⠀⣠⣴⡟⠛⠙⢢⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⡤⠤⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣰⠿⠛⠉⠉⠉⠉⢹⣾⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢧⠀
+⠀⢀⣼⣏⣁⣠⣴⣶⣬⣿⡄⠀⠀⠀⠀⠀⠀⢀⡞⠁⠀⠀⠈⢳⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⠏⠀⠀⠀⠀⢀⣠⠼⡏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⡄
+⠀⣾⡿⠋⠁⠀⠀⠀⠙⠻⣿⡄⠀⠀⠀⠀⠀⡞⠀⠀⠀⠀⠀⠀⢱⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀ ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡾⠀⠀⠀⠀⠀⠻⠦⣄⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⡇
+⣸⠟⠀⠀⠀⠀⠀⠀⠀⠀⠘⣧⠀⠀⠀⠀⢸⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀ ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢰⣤⡇⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡇
+⡟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⠀⠀⠀⣀⣏⡀⠀⠀⣠⠤⠒⠦⣄⣻⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀  ⠀⠀⠀⠀⠀⠀⠀⠀⣠⣾⠿⠿⠛⠛⠓⠦⠤⣄⣀⠀⠀⠀⠀⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡇
+⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣠⠖⠉⠁⠀⠉⠓⢿⡁⢀⣀⣀⠈⠻⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀ ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⠴⠚⠉⠉⠁⠀⠀⠀⠀⠀⠀⠀⠸⡿⠟⠲⣴⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡇
+⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⠃⢀⠴⠊⢻⡶⣤⠀⠙⢇⠀⠈⠳⣄⠈⢣⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀ ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⠖⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⡟⣷⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⠇
+⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣴⠋⠀⠀⡼⠀⣸⢳⡀⠈⢧⡤⠤⠿⠦⣄⣧⡀⠀⠀⠀⠀⠀⠀⠀⠀  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡴⠋⠀⠀⠀⠀⠐⠒⢦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣾⠇⣿⠀⠀⠀⠀⠀⠀⢀⡤⠤⠒⠒⠋⠀
+⢱⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⠇⠀⠀⢸⠁⣰⡧⠞⠃⠀⢀⣀⣀⣀⣀⠀⠀⠉⠉⠒⠤⣄⠀⠀⠀⠀⠀⠀⠀ ⠀⠀⠀⠀   ⠀⠀⠀⠀⡴⠋⠀⠀⠀⠀⣀⡤⠶⣦⡀⠙⠢⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⡟⠀⢸⠀⠀⠀⠀⠀⠀⠉⠓⠢⣄⠀⠀⠀
+⠈⢇⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⡄⠀⢀⣧⠞⠁⠀⠀⠀⠀⢈⣀⣠⣄⣈⡉⠳⠄⠀⠀⠀⠀⠙⠦⣀⠀⠀⠀⠀⠀    ⠀⠀⠀⠀⠀⢀⡞⠁⠀⠀⢀⡴⠋⠁⠀⠀⠈⠻⢶⣄⡀⠀⠀⠀⠀⠀⠀⠀⠀⣸⠃⠀⢸⡆⠀⠀⠀⠀⠀⠀⢀⡰⠋⠀⠀⠀
+⠀⠈⢦⠀⠀⠀⠀⠀⠀⠀⠀⠀⣷⣀⡼⠁⠀⠀⠀⠀⣠⠖⠉⠀⠀⠀⠀⠉⠙⠦⣄⠀⠀⠀⠀⠀⠈⠣⡀⠀⠀⠀⠀⠀⠀⠀ ⠀⠀⠀⠀⡾⠀⠀⠀⢀⠞⠀⠀⣠⠴⢶⣶⣦⣄⠉⠛⢶⡄⠀⠀⠀⠀⠀⠀⡏⠀⠀⢸⠀⠀⠀⠀⣀⣠⡶⠋⠀⠀⠀⠀⠀
+⠀⠀⠀⠳⡄⠀⠀⠀⠀⠀⠀⠀⢹⠙⢦⡀⠀⠀⠀⣼⣇⠀⣠⠖⠀⠀⠀⠀⠀⠀⠈⠳⣄⠀⠀⠀⠀⠀⠙⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣼⣷⠂⠀⢀⡞⠀⢀⣾⣯⣤⣼⣿⣿⣿⣧⠀⠀⠙⡆⠀⠀⠀⠀⠸⡇⠀⠀⣾⣠⠴⠒⠋⢉⣿⠁⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠈⠲⢄⡀⠀⠀⠀⠀⠘⡄⠀⢳⡀⠀⢰⠇⠈⣿⣿⡛⢻⣶⣶⣦⣄⠀⠀⠀⠈⢧⠀⠀⠀⢀⣀⣽⣦⣀⠀⠀⢀⣴⡟⠉⠛⣆⠀⠀⣸⠀⠀⣾⣿⣿⣿⣿⣿⣿⣿⣿⠂⠀⠀⡇⠀⠀⠀⠀⠀⢷⠀⢰⠏⠀⠀⢀⡴⠋⢸⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⣿⣗⠲⠤⣀⡀⢳⡀⠀⢳⠀⢸⡀⠀⠸⣿⣿⣿⣿⣿⣿⣿⣿⣄⠀⠀⠘⣇⠀⣴⠋⠀⠀⠀⠈⢣⠀⣸⠏⠀⠀⠀⢸⡄⠀⡇⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⡏⠀⠀⣸⠁⠀⠀⠀⠀⠀⠀⠀⠋⠠⠴⠚⠁⠀⢀⡞⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⡇⠈⡷⢤⡀⠈⠙⢷⣀⡼⠀⠈⢧⠀⠀⠈⠛⠿⣿⣿⣿⣿⣿⣿⣷⡀⠀⢹⠀⡇⠀⠀⠀⠀⠀⠈⡇⢻⡇⠀⠀⠀⠀⡇⠀⡇⠀⣼⣿⣿⣿⣿⣿⣿⠿⠋⠀⣠⠞⠁⠀⠀⣲⣶⠆⠀⠀⠀⠀⠀⠀⠀⢀⡴⠋⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⡇⠀⡇⠀⠙⢲⢤⡀⠙⠀⠀⠀⠀⠳⣄⠀⠀⠀⠀⠈⠉⠉⠛⠛⠛⠁⠀⣸⠀⣿⣶⡄⠀⠀⠀⢀⡇ ⠈⣿⠀⠀⢸⣿⡇⠀⡇⠀⠸⠿⠿⠟⠛⠋⠁⣀⡤⠚⠁⠀⢀⣠⠞⠁⡼⠀⠀⠀⠀⠀⠀⣠⠔⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⡇⢰⠃⠀⠀⡿⣆⠀⠀⠀⠀⠀⠀⠀⠈⠙⠒⠦⠤⠤⠤⠤⠤⠤⠄⠒⠋⠁⠀⠀⠻⣿⡀⠀⢀⡞⠀  ⠘⣧⡀⠸⣿⡇⠀⠙⢤⣀⣀⣠⡤⠔⠒⠋⠁⢀⣠⠴⠒⠉⠀⠀⡼⠁⠀⠀⠀⢀⡴⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⡇⢸⠀⠀⠀⡇⢸⠛⠢⣄⡀⠀⠠⠴⣤⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢳⣶⠋⠀⠀⠀⠀  ⠈⠻⢤⣿⡄⠀⠀⠀⠀⢀⣀⣠⠤⠴⠒⠋⠉⠀⠀⠀⠀⠀⡼⠁⠀⠀⠀⢠⣏⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⢸⠃⢸⠀⠀⠀⢱⢸⡀⠀⠀⠈⠑⠢⢄⡳⣌⡉⠓⠲⠤⠤⠤⠤⠤⠤⠤⠴⠒⠒⠒⠚⣩⠟⠁⠀⠀⠀  ⠀ ⠀⠈⠉⠳⣞⡋⠉⠉⠀⠀⣀⣀⠠⠤⠒⠒⠒⠁⢢⠀⠳⣄⡀⠀⠀⠀⠀⠉⠳⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⢸⠀⢸⠀⠀⠀⢸⢸⡇⠀⠀⠀⠀⠀⣠⣭⣷⡝⢢⡀⠀⠀⠀⢀⡠⠤⠤⠤⠒⠒⠉⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠉⠉⠉⠁⠀⠀⠀⠀⠀⢀⣠⠋⠀⠀⠀⠙⡇⠀⠀⠀⠀⠀⠈⢣⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⢸⠀⡌⠀⠀⠀⢸⠈⡇⠀⠀⢀⡴⠋⠀⠀⠀⠙⢦⣙⡆⠀⠀⠸⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀ ⠀⠀    ⠀⠀⠀⠀⠐⣻⡋⠀⠀⠀⠀⠀⡇⠀⠀⠀⠀⠀⠀⠀⠹⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⡇⠀⡇⠀⠀⠀⡏⢰⠇⠀⢀⡞⠀⠀⠀⠀⠀⢀⡾⠋⠁⠀⠀⠀⠈⢢⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀   ⠀⠀⠀ ⠀ ⠀⠀⠀⢠⣷⠃⠀⠀⠀⠀⠀⢧⠀⠀⠀⠀⠀⠀⠀⠀⠘⢦⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⢰⠃⢸⠁⠀⠀⠀⡇⢸⠀⠀⡜⠀⠀⠀⠀⠀⠀⠈⡇⠀⠀⠀⠀⠀⠀⠀⠱⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀626⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢹⡾⠀⠀⠀⠀⠀⠘⣆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠳⡄⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⢀⣎⢰⡏⠀⠀⠀⢰⡃⣼⠀⣼⠃⠀⠀⠀⠀⠀⠀⣼⡇⠀⠀⠀⠀⠀⠀⠀⠀⣵⠀⠀⠀⠀⠀⠀⠀⠀⠀<3⠀624⠀⠀ ⠀⠀  ⠀⠀⠀  ⠀⠀⠀⠀⠀⠀⠀⢸⣷⠀⠀⠀⠀⠀⠀⢸⢧⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⢆⠀⠀⠀⠀⠀
+-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Primary Meta Tags -->
+    <title>liloandstit.ch</title>
+    <link rel="icon" type="image/png" href="https://liloandstit.ch/boojiboo.png" />
+    <meta name="title" content={title}>
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://liloandstit.ch/">
+    <meta property="og:title" content={title}>
+    <meta property="og:image" content="https://liloandstit.ch/boojiboo.png">
+    <meta name="theme-color" content="#f96ba6">
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:url" content="https://liloandstit.ch/">
+    <meta property="twitter:title" content={title}>
+    <meta property="twitter:image" content="https://liloandstit.ch/boojiboo.png">
+    <!-- other shit -->
+    <!-- hey did you know that i made this whole website in the span of 24 hours with like...3 hours of sleep in the middle? lmao -->
+    <!--
+        AND I HAVE TO SPEND MY PRECIOUS TIME FIXING IT YOU FUCK
+                                         - with love, split! <3
+                                             (platonically ofc)
+     -->
+
+     <!--
+        description
+      -->
+
+    {
+        description
+        ? 
+            <meta property="og:description" content={description}>
+            <meta property="twitter:description" content={description}>
+            <meta name="description" content={description}>
+        : ""
+    }
+</head>
+<body>
+    <a href="/" rel="me" style="display:none;opacity:0;height:0;width:0;user-select:none;"></a>
+    <div class="container">
+        <div class="top">
+            <div class="bambooTop">
+                <div class="stoppie1 stsh"></div>
+                <div class="stoppie2 stsh"></div>
+                <div class="stoppie3 stsh"></div>
+                <div class="stoppie4 stsh"></div>
+                <div class="stoppie5 stsh"></div>
+            </div>
+            <img src="/PALMR.png" alt="doodled palm tree" class="palmL">
+            <a href="" class="headerlink">
+                <img src="/LNS.png" alt="liloandstit.ch" class="logo">
+            </a>
+            <img src="/PALM.png" alt="doodled palm tree" class="palmR">
+            <div class="bambooBottom">
+                <div class="stoppie1 stsh"></div>
+                <div class="stoppie2 stsh"></div>
+                <div class="stoppie3 stsh"></div>
+                <div class="stoppie4 stsh"></div>
+                <div class="stoppie5 stsh"></div>
+            </div>
+        </div>
+        <hr class="inv">
+        <hr class="inv">
+        <div class="links">
+            <div class="flw">
+                <h1 class="bb lh1 stitch">Links</h1>
+            </div>
+            <div class="links2">
+                <h2 class="lh1txt ub">
+                    <a href="/">Home</a>
+                    <a href="/about">About</a>
+                    <a href="https://tantalog.liloandstit.ch/" target="_blank">Tantalog Dictionary</a>
+                    <a href="https://bsky.liloandstit.ch/" target="_blank">Bluesky</a>
+                    <a href="https://github.com/s626ch/" target="_blank">Github</a>
+                </h2>
+                <h2 class="lh1txt ub">
+                    <a href="https://twitter.com/s626ch/" target="_blank">Twitter</a>
+                    <a href="https://twitter.com/sillystitchy/" target="_blank">Fursuit Twitter</a>
+                    <a href="https://discord.liloandstit.ch/" target="_blank">Discord</a>
+                    <a href="/buttons">Buttons</a>
+                    <a href="/more">More</a>
+                </h2>
+            </div>
+        </div>
+        <hr class="inv">
+        <div class="content" class="fuckapple">
+            <slot />
+            <img src="/stitchlol.gif" alt="Stitch laughing">
+        </div>
+    </div>
+</body>
+<!--
+                          7?.                                                    .~!~^:             
+                          ~B5.                                                  ~PGYY5PPY7^.        
+                           7BY                                                  Y#7   .^7J5PY~      
+                            YB7        .?~         ~J:                          YB!        :~:      
+                            :GG^       7#?         Y#~                          JB7                 
+                             !BY       YB~         JB!                          ?B?                 
+                           ..:PB!     .GG:         JB?                          7BJ                 
+               .:^~!7?JJY555P5P5^     ^BP.         ?B?                          !BY                 
+       :7?JYY55PP55YJ?7!~^^:...       7BY      :.  ?BJ                          ~B5                 
+       J#5!!~^::.                     JB7    :YB!  ?BJ                          ~B5                 
+       ~BP                            PB~   .5P~   7BJ               ...        ~BP                 
+        YB!                          .GG.    .     7BY.:^^~!!7??JYY555PY.       ^BP                 
+        ~B5       .:::^^^^^^^^^^^^~~~7BG77??JJYY555PBG5555YYJJ?77!~^^:..~^      ^BP.                
+        .PB^      ?5555555555555555YYPBPJ??77!!~~^:7BY..               !#J      :GG.  :~.           
+         ?BJ       .                 ?B?    .      !B5     .7?7~:.     ?B7      .GG: ~GBG!          
+         :GG:                 :~7?~  5B!   7G~     ~B5     !BPJ5PPY?~. JB7       PB^.PB!5B?         
+          JB?            .^7YPP5B#Y .PB^   ~BY     ~B5     7BJ  .^!JPP5GB!       YB7YB7 .JBY.       
+          :GG:       :~?5PPY7^:JBJ. :GG.   :GG.    ^BP     ?BJ       :~!~.       ?BGB7    7BP^      
+           JB?  .:!J5P5J!^.   YB?   ~B5     PB^    ^BP.    YB7                   !BB7      ~PG!     
+           ^BG7YPP5?~:      .5B7    7BJ     JB7    :GG.    5B!                   ^BP        :5B7    
+            !YY7^.         .5B7     JB7     !B5    :GG.    ^5GY!:                :GG:        .PB!   
+                          .5B7      5B~     :GG:   :GG:      ^?5PPYJ7~^:.         PB^         ~BP.  
+                         .YB?      .GG:      5B~   :GG:         .^!?JY5PP5YJ7!^.  YB!        ~PG7   
+                        .YB?       ^BP       ?#J   :GG:                .:^!7JYY:  JB?      .?B5^    
+                       .YB?        ~B5       ^P?   :GG.                           ?B?     ^PB?      
+                      .5B?         :GB~            ^BP.                           7#Y   .?B5^       
+                     .5B7           ^5BJ^          ^BP                            ^Y!  ~PB7         
+                    .5B7              ~YG57:       .5B?:                             .JB5:          
+                   .YB7                 :75G5!.     .!5PPY7~:.                      ~PG7            
+                   7BJ                     ^?PGY~.     .~7J5PP557                 .JB5:             
+                   .^                         ^JPGY~.       .:^~^                :5B?               
+                                                .~JPP~                          :GG~                
+                                                   .^.                          :!:                 
+-->
+</html>

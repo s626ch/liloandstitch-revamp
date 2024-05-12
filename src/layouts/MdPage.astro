@@ -1,0 +1,15 @@
+---
+/*
+    Wrapper for Page.astro to support frontmatter for .md, .mdx
+*/
+
+import Page, { type Props as PageProps } from "./Page.astro"
+
+export interface Props {
+    frontmatter: PageProps
+}
+---
+
+<Page {...Astro.props.frontmatter}>
+    <slot />
+</Page>
