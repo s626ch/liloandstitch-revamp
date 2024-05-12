@@ -10,6 +10,36 @@ export interface Props {
 }
 ---
 
+<style lang="scss">
+    h1.subtitle {
+        border-bottom:2px solid var(--header);
+        padding-bottom:4px;
+        text-align: center;
+        font-weight: normal;
+        font-family: "BukaBird", sans-serif;
+    }
+</style>
+
+<style lang="scss" is:global>
+    svg {
+        height: 1em;
+        fill: currentColor;
+        vertical-align: middle;
+    }
+
+    .customEmoji {
+        height: 1.5em;
+        width: auto;
+        vertical-align: middle;
+        transition-duration: 150ms;
+        transition-property: transform;
+
+        &:hover {
+            transform: scale(150%);
+        }
+    }
+</style>
+
 <Page {...Astro.props.frontmatter}>
     <slot />
 </Page>

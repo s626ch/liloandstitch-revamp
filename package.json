@@ -16,9 +16,12 @@
   "dependencies": {
     "@astrojs/mdx": "^3.0.0",
     "@astrojs/svelte": "^5.4.0",
+    "@fluentui/svg-icons": "^1.1.239",
     "astro": "^4.7.1",
     "sass": "^1.77.0",
+    "simple-icons": "^11.14.0",
     "svelte": "^4.2.16",
-    "typescript": "^5.4.5"
+    "typescript": "^5.4.5",
+    "unist-util-visit": "^5.0.0"
   }
 }
