@@ -119,79 +119,70 @@ h1,h2,h3,h4,h5,h6{color:var(--header);}
     .links .flw{border-right:2px solid var(--header);}
     h2.lh1txt {font-size:0.7em;margin-left:0;margin-right:0;}
 }
-
-
-.fuckapple{image-rendering:pixelated;image-rendering:-moz-crisp-edges;position:fixed;right:24px;bottom:24px;}
-*{box-sizing:border-box;color:white;}
-h1,h2,h3,h4,h5,h6{color:var(--header);}
-.cnt{text-align:center;}
-.nfw{font-weight:normal;}
-.brd{border-bottom:2px solid var(--header);padding-bottom:4px;}
-.wht{color:white;}
-*,img{image-rendering:pixelated;image-rendering:-moz-crisp-edges;}
-
-/* Quote box container */
-blockquote {
-    border-left: 4px solid var(--header);
-    background: var(--darkCol);
-    padding: 20px;
-    padding-top:8px;
-    padding-bottom:8px;
-    margin: 20px 0;
+.pgContainer {
+    padding: 10px 10px;
     position: relative;
+    .fuckapple{image-rendering:pixelated;image-rendering:-moz-crisp-edges;position:absolute;right:24px;bottom:24px;}
+    *{box-sizing:border-box;color:white;}
+    h1,h2,h3,h4,h5,h6{color:var(--header);}
+    .cnt{text-align:center;}
+    .nfw{font-weight:normal;}
+    .brd{border-bottom:2px solid var(--header);padding-bottom:4px;}
+    .wht{color:white;}
+    *,img{image-rendering:pixelated;image-rendering:-moz-crisp-edges;}
 
-    font-size: 18px;
-    line-height: 1;
-    color: white;
+    /* Quote box container */
+    blockquote {
+        border-left: 4px solid var(--header);
+        background: var(--darkCol);
+        padding: 20px;
+        padding-top:8px;
+        padding-bottom:8px;
+        margin: 20px 0;
+        position: relative;
 
-    &.quote {
-        p {
-            margin-bottom: 10px;
-            &::before, &::after{
-                font-size: 36px;
-                color: var(--header);
-                vertical-align: middle;
+        font-size: 18px;
+        line-height: 1;
+        color: white;
+
+        &.quote {
+            p {
+                margin-bottom: 10px;
+                &::before, &::after{
+                    font-size: 36px;
+                    color: var(--header);
+                    vertical-align: middle;
+                }
+                &::before {
+                    content: "\201C";
+                }
+                &::after {
+                    content: "\201D";
+                }
             }
-            &::before {
-                content: "\201C";
-            }
-            &::after {
-                content: "\201D";
+            address {
+                font-size: unset;
+                color: var(--pre);
+                margin-bottom: 8px;
             }
         }
-        address {
-            font-size: unset;
-            color: var(--pre);
-            margin-bottom: 8px;
-        }
+
+
     }
-
-
-}
-/* quote text style */
-.quote-text {font-size: 18px;line-height: 1;color: white;margin-bottom: 10px;}
-.fixmargin{margin-top:0;margin-bottom:0;}
-.quote-author {font-style: italic;color: var(--pre);}
-.quote-author.fixmargin{margin-bottom:8px;}
-.inbl{display:inline-block;}
-.jst{text-align:justify;}
-a.rrr{float:right;display:flex;flex-direction:column;}
-.rrr{float:right;display:flex;flex-direction:column;}
-.mobile{display:none;}
-
-/* unironically fuck apple, y'all can suck my fat wiggly alien dick */
-@media only screen and (max-width:720px) {
-    h2 {font-size:1.25em;}
-    h3{font-size:1em;}
-    .fuckapple{width:35px;height:48px;}
-    p{font-size:0.8em!important;}
-}
-@media only screen and (max-width:480px) {
-    h1{font-size:1.5em;}
-    h2 {font-size:1.1em;}
-    h3{font-size:0.9em;}
-    .fuckapple{right:0;bottom:0;}
-}
-@media only screen and (max-width:420px) {
-    .mobile{display:block;text-align:center;padding:0;margin:-10px;}
+    /* unironically fuck apple, y'all can suck my fat wiggly alien dick */
+    @media only screen and (max-width:720px) {
+        h2 {font-size:1.25em;}
+        h3{font-size:1em;}
+        .fuckapple{width:35px;height:48px;}
+        p{font-size:0.8em!important;}
+    }
+    @media only screen and (max-width:480px) {
+        h1{font-size:1.5em;}
+        h2 {font-size:1.1em;}
+        h3{font-size:0.9em;}
+        .fuckapple{right:0;bottom:0;}
+    }
+    @media only screen and (max-width:420px) {
+        .mobile{display:block;text-align:center;padding:0;margin:-10px;}
+    }
 }
