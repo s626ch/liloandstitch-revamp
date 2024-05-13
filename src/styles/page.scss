@@ -1,23 +1,24 @@
 /* setup vars as i do intend to reuse this code for my actual website */
 :root {
-    --wp: url('i-hate-sorting-assets/beach.png');
-    --wpb: url('i-hate-sorting-assets/beach-blur.png');
-    --wpbd: url('i-hate-sorting-assets/beach-blur-darker.png');
-    --bamboo: url('i-hate-sorting-assets/BAMBOOLOOP.png');
-    --bamboostop: url('i-hate-sorting-assets/BAMBOOSTOPPIE.png');
-    --bambL: url('i-hate-sorting-assets/BMBENDLEFT.png');
-    --bambR: url('i-hate-sorting-assets/BMBENDRIGHT.png');
+    --wp: url('/beach.png');
+    --wpb: url('/beach-blur.png');
+    --wpbd: url('/beach-blur-darker.png');
+    --bamboo: url('/BAMBOOLOOP.png');
+    --bamboostop: url('/BAMBOOSTOPPIE.png');
+    --bambL: url('/BMBENDLEFT.png');
+    --bambR: url('/BMBENDRIGHT.png');
     --pre: #64bde9;
     --dark: #1E1E1E99;
     --oceanL: #ade6f7;
     --claws: #082142;
     --header: #9cceff;
     --tempBG: #ff000080;
+    --darkCol: #00000080;
 }
 /* buka bird definition */
 @font-face {
     font-family: 'BukaBird';
-    src: url('i-hate-sorting-assets/BukaBird.ttf') format('truetype');
+    src: url('/BukaBird.ttf') format('truetype');
 }
 /* ubuntu font for other text */
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
@@ -43,7 +44,7 @@ a.headerlink{text-decoration:none;}
 img.logo{width:100%;height:auto;padding:32px;}
 hr.inv{opacity:0;}
 .top{flex: 0 1 auto;}
-.content{flex: 1 1 auto;}
+.content{flex: 1 1 auto; overflow-y: auto;}
 .palmL,.palmR{position:absolute;z-index:2;width:auto;height:100%;top:0px;}
 .palmL{left:-120px;}
 .palmR{right:-120px;}
@@ -100,7 +101,7 @@ h1,h2,h3,h4,h5,h6{color:var(--header);}
 .links .links2 .lh1txt a{color:white;margin:5px;margin-bottom:0;padding-bottom:0;text-decoration:none;transition:border-bottom 0.2s ease-in-out;border-bottom:2px solid transparent;margin-left:15px;margin-right:15px;}
 .links .links2 .lh1txt a:hover{border-bottom: 2px solid white;}
 .stitch{padding-left:50px;position:relative;}
-.stitch::before{content:"";width:50px;height:50px;display:block;position:absolute;top:-8px;left:-6px;background-image: url('i-hate-sorting-assets/stitch.gif');background-repeat:no-repeat;background-size:contain;background-position:center;image-rendering:pixelated;image-rendering:-moz-crisp-edges;}
+.stitch::before{content:"";width:50px;height:50px;display:block;position:absolute;top:-8px;left:-6px;background-image: url('/stitch.gif');background-repeat:no-repeat;background-size:contain;background-position:center;image-rendering:pixelated;image-rendering:-moz-crisp-edges;}
 
 /* main content frame */
 #cf{width:100%;height:100%;}
@@ -117,4 +118,71 @@ h1,h2,h3,h4,h5,h6{color:var(--header);}
     .flw .lh1{font-size:1em;padding-left:15px;margin-right:0;}
     .links .flw{border-right:2px solid var(--header);}
     h2.lh1txt {font-size:0.7em;margin-left:0;margin-right:0;}
+}
+.fuckapple{image-rendering:pixelated;image-rendering:-moz-crisp-edges;position:fixed;right:24px;bottom:24px;}
+.pgContainer {
+    padding: 10px 10px;
+    position: relative;
+    *{box-sizing:border-box;color:white;}
+    h1,h2,h3,h4,h5,h6{color:var(--header);}
+    .cnt{text-align:center;}
+    .nfw{font-weight:normal;}
+    .brd{border-bottom:2px solid var(--header);padding-bottom:4px;}
+    .wht{color:white;}
+    *,img{image-rendering:pixelated;image-rendering:-moz-crisp-edges;}
+
+    /* Quote box container */
+    blockquote {
+        border-left: 4px solid var(--header);
+        background: var(--darkCol);
+        padding: 20px;
+        padding-top:8px;
+        padding-bottom:8px;
+        margin: 20px 0;
+        position: relative;
+
+        font-size: 18px;
+        line-height: 1;
+        color: white;
+
+        &.quote {
+            p {
+                margin-bottom: 10px;
+                &::before, &::after{
+                    font-size: 36px;
+                    color: var(--header);
+                    vertical-align: middle;
+                }
+                &::before {
+                    content: "\201C";
+                }
+                &::after {
+                    content: "\201D";
+                }
+            }
+            address {
+                font-size: unset;
+                color: var(--pre);
+                margin-bottom: 8px;
+            }
+        }
+
+
+    }
+    /* unironically fuck apple, y'all can suck my fat wiggly alien dick */
+    @media only screen and (max-width:720px) {
+        h2 {font-size:1.25em;}
+        h3{font-size:1em;}
+        .fuckapple{width:35px;height:48px;}
+        p{font-size:0.8em!important;}
+    }
+    @media only screen and (max-width:480px) {
+        h1{font-size:1.5em;}
+        h2 {font-size:1.1em;}
+        h3{font-size:0.9em;}
+        .fuckapple{right:0;bottom:0;}
+    }
+    @media only screen and (max-width:420px) {
+        .mobile{display:block;text-align:center;padding:0;margin:-10px;}
+    }
 }

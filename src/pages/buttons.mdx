@@ -1,0 +1,19 @@
+---
+layout: "../layouts/MdPage.astro"
+title: Buttons
+subtitle: Buttons
+description: "aloha, i'm Stitch, welcome to my site :D"
+---
+import Buttons from "../components/buttons/Buttons.astro"
+import TiltController from "../components/buttons/TiltController.astro"
+
+## My buttons!
+
+<Buttons filter={e => e.isStitch} />
+
+## Other buttons
+### Mostly friends, other interests, or anything really!
+
+<Buttons filter={e => !e.isStitch} />
+
+<TiltController />

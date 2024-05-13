@@ -1,0 +1,78 @@
+---
+/*
+    Wrapper for Page.astro to support frontmatter for .md, .mdx
+*/
+
+import Page, { type Props as PageProps } from "./Page.astro"
+
+export interface Props {
+    frontmatter: PageProps & { subtitle: string }
+}
+---
+
+<style lang="scss">
+    h1.subtitle {
+        border-bottom:2px solid var(--header);
+        padding-bottom:4px;
+        text-align: center;
+        font-weight: normal;
+        font-family: "BukaBird", sans-serif;
+    }
+</style>
+
+<style lang="scss" is:global>
+    svg {
+        height: 1em;
+        fill: currentColor;
+        vertical-align: middle;
+    }
+
+    .customEmoji {
+        height: 1.5em;
+        width: auto;
+        vertical-align: middle;
+        transition-duration: 150ms;
+        transition-property: transform;
+
+        &:hover {
+            transform: scale(150%);
+        }
+    }
+    
+    .markdown {
+        font-family: "Ubuntu", sans-serif;
+
+        p > img:not(.customEmoji), p > video {
+            display: block;
+            margin: auto;
+            max-width: 100%;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            text-align: center;
+            color: white;
+        }
+    
+        code {
+            font-family: monospace monospace;
+            background-color: #24292E;
+            border-radius: 4px;
+            padding: 2px 5px;
+        }
+
+        .astro-code {
+            padding: 4px 8px;
+            border-radius: 4px;
+            code {
+                padding: 0 !important;
+            }
+        }
+    }
+</style>
+
+<Page {...Astro.props.frontmatter}>
+    <h1 class="subtitle">{Astro.props.frontmatter.subtitle}</h1>
+    <div class="markdown">
+        <slot />
+    </div>
+</Page>
