@@ -1,4 +1,5 @@
 ---
+import { ViewTransitions } from "astro:transitions";
 import "../styles/page.scss";
 
 const { title, description } = Astro.props
@@ -76,11 +77,9 @@ export interface Props {
         : ""
     }
 
-    <style>
-        
-    </style>
+    <ViewTransitions />
 </head>
-<body>
+<body transition:persist>
     <a href="/" rel="me" style="display:none;opacity:0;height:0;width:0;user-select:none;"></a>
     <div class="container">
         <div class="top">
@@ -131,8 +130,8 @@ export interface Props {
         <div class="content">
             <div class="pgContainer">
                 <slot />
-                <img src="/stitchlol.gif" alt="Stitch laughing" class="fuckapple">
             </div>
+                <img src="/stitchlol.gif" alt="Stitch laughing" class="fuckapple">
         </div>
     </div>
 </body>

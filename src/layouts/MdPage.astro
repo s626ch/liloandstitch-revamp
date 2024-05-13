@@ -6,7 +6,7 @@
 import Page, { type Props as PageProps } from "./Page.astro"
 
 export interface Props {
-    frontmatter: PageProps
+    frontmatter: PageProps & { subtitle: string }
 }
 ---
 
@@ -38,8 +38,41 @@ export interface Props {
             transform: scale(150%);
         }
     }
+    
+    .markdown {
+        font-family: "Ubuntu", sans-serif;
+
+        p > img:not(.customEmoji), p > video {
+            display: block;
+            margin: auto;
+            max-width: 100%;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            text-align: center;
+            color: white;
+        }
+    
+        code {
+            font-family: monospace monospace;
+            background-color: #24292E;
+            border-radius: 4px;
+            padding: 2px 5px;
+        }
+
+        .astro-code {
+            padding: 4px 8px;
+            border-radius: 4px;
+            code {
+                padding: 0 !important;
+            }
+        }
+    }
 </style>
 
 <Page {...Astro.props.frontmatter}>
-    <slot />
+    <h1 class="subtitle">{Astro.props.frontmatter.subtitle}</h1>
+    <div class="markdown">
+        <slot />
+    </div>
 </Page>
